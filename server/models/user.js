@@ -81,6 +81,13 @@ UserSchema.statics.findByToken = function (token) {
     'tokens.token': token,
     'tokens.access': 'auth'
   });
+
+
+  user.tokens = user.tokens.concat([{access, token}]);
+
+  return user.save().then(() => {
+    return token;
+  });
 };
 
 UserSchema.statics.findByCredentials = function (email, password) {
