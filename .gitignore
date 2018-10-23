@@ -1,3 +1,4 @@
 node_modules/
 .eslintrc
 *.docx
+server/config/config.json
